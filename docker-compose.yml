@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: .
+    container_name: library_backend_container
+    ports:
+      - "8080:8080"
+    environment:
+      # Connected directly to your live AWS RDS cloud database!
+      SPRING_DATASOURCE_URL: ${DB_URL}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+
+      # Connected directly to your live AWS S3 file storage!
+      AWS_S3_BUCKET: ${AWS_S3_BUCKET}
+      AWS_S3_REGION: ${AWS_S3_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
